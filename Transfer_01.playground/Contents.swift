@@ -16,7 +16,7 @@ func testC(name: String, urlStr: String, lastMessage: String){
 
 func testA(name: String, age: Int) {
 
-    if name.count >= 4 {
+    if name.count < 4 {
         print("名前は4文字以上入力してください")
         return
     }
@@ -53,6 +53,9 @@ func testB(name: String) {
 
 
 testA(name: "あいうえお", age: 20)
+print()
 testA(name: "か", age: 20)
+print()
 testA(name: "さしすせそ", age: 10)
+print()
 testB(name: "あいうえお")
