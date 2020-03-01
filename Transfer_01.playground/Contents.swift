@@ -28,9 +28,7 @@ func testA(name: String, age: Int) {
     print("\(name)さん, \(age)歳で登録します")
     /*ここまで共通化*/
 
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-        print("登録ありがとうございました")
-    }
+    print("登録ありがとうございました")
 }
 
 func testB(name: String) {
@@ -43,12 +41,10 @@ func testB(name: String) {
     print("\(name)さんの今日の運勢は...")
     /*ここまで共通化*/
 
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-        if Int.random(in: 0...1) == 0 {
-            print("大吉です!")
-        } else {
-            print("大凶です!")
-        }
+    if Int.random(in: 0...1) == 0 {
+        print("大吉です!")
+    } else {
+        print("大凶です!")
     }
 }
 
