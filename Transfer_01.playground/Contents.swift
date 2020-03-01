@@ -8,6 +8,12 @@ import Foundation
 
  */
 
+func testC(name: String, urlStr: String, lastMessage: String){
+    print("\(name)さん, よろしくお願いします")
+    print("\(urlStr) にアクセスします")
+    print("\(lastMessage)")
+}
+
 func testA(name: String, age: Int) {
 
     if name.count >= 4 {
@@ -21,34 +27,27 @@ func testA(name: String, age: Int) {
     }
 
     /*ここから共通化*/
-    print("\(name)さん, よろしくお願いします")
-
-    let urlStr = "https://test.com/signup"
-    print("\(urlStr) にアクセスします")
-    print("\(name)さん, \(age)歳で登録します")
+    testC(name: name,
+          urlStr: "https://test.com/signup",
+          lastMessage: "\(name)さん, \(age)歳で登録します")
     /*ここまで共通化*/
 
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-        print("登録ありがとうございました")
-    }
+    print("登録ありがとうございました")
 }
 
 func testB(name: String) {
 
     /*ここから共通化*/
-    print("\(name)さん, よろしくお願いします")
+    testC(name: name,
+          urlStr: "https://test.com/test",
+          lastMessage: "\(name)さんの今日の運勢は...")
 
-    let urlStr = "https://test.com/test"
-    print("\(urlStr) にアクセスします")
-    print("\(name)さんの今日の運勢は...")
     /*ここまで共通化*/
 
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-        if Int.random(in: 0...1) == 0 {
-            print("大吉です!")
-        } else {
-            print("大凶です!")
-        }
+    if Int.random(in: 0...1) == 0 {
+        print("大吉です!")
+    } else {
+        print("大凶です!")
     }
 }
 
